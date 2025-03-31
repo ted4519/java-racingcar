@@ -14,27 +14,19 @@ public class Carracing {
         System.out.println("\n실행 결과\n");
 
         for(int i = 0; i < num; ++i) {
-            this.gogo(distance);
+            this.movingforward(distance);
             this.printDist(carNames, distance);
             System.out.println();
         }
 
     }
 
-    private void gogo(int[] distance) {
+    private void movingforward(int[] distance) {
         for(int i = 0; i < distance.length; ++i) {
-            distance[i] += this.move();
+            if (Randoms.pickNumberInRange(0, 9) >= 4) {
+                distance[i] += 1;
+            }
         }
-
-    }
-
-    private int move() {
-        int m = 0;
-        if (Randoms.pickNumberInRange(0, 9) >= 4) {
-            m = 1;
-        }
-
-        return m;
     }
 
     private void printDist(String[] carNames, int[] distance) {
